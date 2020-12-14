@@ -1,0 +1,18 @@
+{% extends 'main/position.html' %}
+
+{% block title %}Create{% endblock %}
+
+{% block content %}
+    <div class="text_main">
+        <h1>Форма по добавлению</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.name }}<br>
+            {{ form.statistical_weight }}<br>
+            {{ form.first_date}}<br>
+            {{ form.expiration_date }}<br>
+            <span>{{ error }}</span>
+            <button class="btn btn-success" type="submit">Добавить</button>
+        </form>
+    </div>
+{% endblock %}

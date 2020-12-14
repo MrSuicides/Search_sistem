@@ -1,0 +1,23 @@
+{% extends 'main/position.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <div class="text_main">
+        <h1>Продукты и их состав</h1>
+        {% if new %}
+            {% for info in new %}
+                <div class="alert alert-warning">
+                    <h3>{{ info.name }}</h3>
+                    <p>{{ info.statistical_weight}}</p>
+                    <p>{{ info.first_date}}</p>
+                    <p>{{ info.expiration_date }}</p>
+                    <a href="{% url 'product-details' info.id %}" class="btn btn-warning">Читать далее</a>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>Таких записей нету!</p>
+        {% endif %}
+
+    </div>
+{% endblock %}
